@@ -1,0 +1,159 @@
+<div style="display: grid;grid-template-columns: auto auto auto auto;grid-gap: 10px;margin-top: 10px">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Basic Fuel Price</h5>
+
+            <div *ngIf="(basicFuelPrice | async)?.length > 0 ; else elseBlockBasicPrice ">
+                <div *ngFor="let basicFPrice of basicFuelPrice | async">
+                    {{basicFPrice.fuel_type}} - {{basicFPrice.cost}}
+                </div>
+            </div>
+            <ng-template #elseBlockBasicPrice>
+                <div class="text-center" style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Fuel Tax Rates</h5>
+
+            <div *ngIf="fuelTaxRates | async as fuelTaxRatesObj;">
+                <div *ngIf="fuelTaxRatesObj.petrol; else elseBlockTaxRate"
+                    style="display: flex;justify-content: space-between;">
+                    <div>
+                        <h6>Petrol</h6>
+                        <div *ngFor="let taxRate of fuelTaxRatesObj.petrol">
+                            {{taxRate.tax}} - {{taxRate.rate}}%
+                        </div>
+                    </div>
+
+                    <div>
+                        <h6>Diesel</h6>
+                        <div *ngFor="let taxRate of fuelTaxRatesObj.diesel">
+                            {{taxRate.tax}} - {{taxRate.rate}}%
+                        </div>
+                    </div>
+                </div>
+                <ng-template #elseBlockTaxRate>
+                    <div class="text-center"
+                        style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="jumbotron" style="padding:1%; margin-top: 2%;">
+    <h2>Fuel Price </h2>
+
+    <div class="row">
+        <div *ngIf="fuelPriceCreateStatusMessage=='success'" class="text-success" style="padding: 1%">
+            Fuel price added successfully
+        </div>
+
+        <div *ngIf="fuelPriceCreateStatusMessage=='failed'" class="text-danger" style="padding: 1%">
+            Fuel price creation failed
+        </div>
+
+        <div *ngIf="fuelPriceCreateStatusMessage == 'in progress'" class="text-center"
+            style="width: 100%;margin-top: 10%;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Sending data to server...</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: grid;grid-template-columns: auto auto auto auto;grid-gap: 10px;margin-top: 10px">
+        <div *ngIf="(cities | async)?.length > 0 ; else elseBlock ">
+            <form #myform="ngForm" (ngSubmit)="ceGroup(myform)" class="form form-register">
+                <div class="form-group ">
+                    <label for="project">*Cities</label>
+                    <select name="city" id="city" class="form-control" ngModel required #city="ngModel">
+                        <option value="">Choose a City</option>
+                        <option value="{{city.id}}" *ngFor="let city of cities | async; let i = index">
+                            {{city.name}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="project">*Date</label>
+                    <div class="input-group">
+                        <input type="date" name="date" value="{{today}}" ngModel="{{today}}" required #date="ngModel">
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <label for="password">*Petrol Price</label>
+                    <input class="form-control" name="petrol_price" id="petrol_price" type="number" min="{{basicFuelPriceObj.petrol*1 + (basicFuelPriceObj.petrol *
+            (petrolTax/100))}}" ngModel="{{basicFuelPriceObj.petrol*1 + (basicFuelPriceObj.petrol *
+              (petrolTax/100))}}" required #petrol_price="ngModel">
+                </div>
+
+                <div class="form-group ">
+                    <label for="password">*Diesel Price</label>
+                    <input class="form-control" name="diesel_price" id="diesel_price" type="number" min="{{basicFuelPriceObj.diesel*1 + (basicFuelPriceObj.diesel *
+            (dieselTax/100))}}" ngModel="{{basicFuelPriceObj.diesel*1 + (basicFuelPriceObj.diesel *
+              (dieselTax/100))}}" required #diesel_price="ngModel">
+                </div>
+
+
+
+
+                <div *ngIf="!isValid" class="alert alert-danger">Please fill required values</div>
+
+
+                <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                    <div *ngIf="city.errors.required">
+                        city is required.
+                    </div>
+                </div>
+
+                <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+                    <div *ngIf="date.errors.required">
+                        date is required.
+                    </div>
+                </div>
+
+                <div *ngIf="petrol_price.invalid && (petrol_price.dirty || petrol_price.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="petrol_price.errors.required">
+                        petrol price is required.
+                    </div>
+                </div>
+
+                <div *ngIf="diesel_price.invalid && (diesel_price.dirty || diesel_price.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="diesel_price.errors.required">
+                        diesel price is required.
+                    </div>
+                </div>
+
+                <input type="submit" value="Create" class="btn btn-primary">
+                <input type="button" value="Cancel" (click)="resetForm(myform)" class="btn btn-secondary"
+                    style="margin-left:1%">
+            </form>
+
+        </div>
+
+        <ng-template #elseBlock>
+            <div class="text-center" style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+        </ng-template>
+
+
+    </div>
+</div>

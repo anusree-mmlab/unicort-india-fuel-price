@@ -1,0 +1,450 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"],{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/styles.css":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--12-1!./node_modules/postcss-loader/src??embedded!./src/styles.css ***!
+  \*********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(true);
+// Module
+exports.push([module.i, "body {\n    position: relative;\n    overflow-x: hidden;\n    background-color: #CFD8DC;\n}\nbody,\nhtml { height: 100%;}\n.nav .open > a, \n.nav .open > a:hover, \n.nav .open > a:focus {background-color: transparent;}\n/*-------------------------------*/\n/*           Wrappers            */\n/*-------------------------------*/\n#wrapper {\n    padding-left: 0;\n    transition: all 0.5s ease;\n}\n#wrapper.toggled {\n    padding-left: 220px;\n}\n#sidebar-wrapper {\n    z-index: 1000;\n    left: 220px;\n    width: 0;\n    height: 100%;\n    margin-left: -220px;\n    overflow-y: auto;\n    overflow-x: hidden;\n    background: #1a1a1a;\n    transition: all 0.5s ease;\n}\n#sidebar-wrapper::-webkit-scrollbar {\n  display: none;\n}\n#wrapper.toggled #sidebar-wrapper {\n    width: 220px;\n}\n#page-content-wrapper {\n    width: 100%;\n    /*padding-top: 70px;*/\n}\n#wrapper.toggled #page-content-wrapper {\n    position: absolute;\n    margin-right: -220px;\n}\n/*-------------------------------*/\n/*     Sidebar nav styles        */\n/*-------------------------------*/\n.navbar {\n  padding: 0;\n}\n.sidebar-nav {\n    position: absolute;\n    top: 0;\n    width: 220px;\n    margin: 0;\n    padding: 0;\n    list-style: none;\n}\n.sidebar-nav li {\n    position: relative; \n    line-height: 20px;\n    display: inline-block;\n    width: 100%;\n}\n.sidebar-nav li:before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: -1;\n    height: 100%;\n    width: 3px;\n    background-color: #1c1c1c;\n    transition: width .2s ease-in;\n\n}\n.sidebar-nav li:hover{\n  background: skyblue !important;\n  border-radius: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n}\n.sidebar-nav li:hover:before,\n.sidebar-nav li.open:hover:before {\n    width: 100%;\n    transition: width .2s ease-in;\n\n}\n.sidebar-nav li a {\n    display: block;\n    color: #ddd;\n    text-decoration: none;\n    padding: 10px 15px 10px 30px;    \n}\n.sidebar-nav li a:hover,\n.sidebar-nav li a:active,\n.sidebar-nav li a:focus,\n.sidebar-nav li.open a:hover,\n.sidebar-nav li.open a:active,\n.sidebar-nav li.open a:focus{\n    color: #fff;\n    text-decoration: none;\n    background-color: transparent;\n}\n.sidebar-header {\n    text-align: center;\n    font-size: 20px;\n    position: relative;\n    width: 100%;\n    display: inline-block;\n}\n.sidebar-brand {\n    height: 65px;\n    position: relative;\n    background:#212531;\n    background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);\n   padding-top: 1em;\n}\n.sidebar-brand a {\n    color: #ddd;\n}\n.sidebar-brand a:hover {\n    color: #fff;\n    text-decoration: none;\n}\n.dropdown-header {\n    text-align: center;\n    font-size: 1em;\n    color: #ddd;\n    background:#212531;\n    background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);\n}\n.sidebar-nav .dropdown-menu {\n    position: relative;\n    width: 100%;\n    padding: 0;\n    margin: 0;\n    border-radius: 0;\n    border: none;\n    background-color: #222;\n    box-shadow: none;\n}\n.dropdown-menu.show {\n    top: 0;\n}\n/*Fontawesome icons*/\n.nav.sidebar-nav li a::before {\n    font-family: fontawesome;\n    content: \"\\f12e\";\n    vertical-align: baseline;\n    display: inline-block;\n    padding-right: 5px;\n}\na[href*=\"#home\"]::before {\n  content: \"\\f015\" !important;\n}\na[href*=\"#about\"]::before {\n  content: \"\\f129\" !important;\n}\na[href*=\"#events\"]::before {\n  content: \"\\f073\" !important;\n}\na[href*=\"#events\"]::before {\n  content: \"\\f073\" !important;\n}\na[href*=\"#team\"]::before {\n  content: \"\\f0c0\" !important;\n}\na[href*=\"#works\"]::before {\n  content: \"\\f0b1\" !important;\n}\na[href*=\"#pictures\"]::before {\n  content: \"\\f03e\" !important;\n}\na[href*=\"#videos\"]::before {\n  content: \"\\f03d\" !important;\n}\na[href*=\"#books\"]::before {\n  content: \"\\f02d\" !important;\n}\na[href*=\"#art\"]::before {\n  content: \"\\f1fc\" !important;\n}\na[href*=\"#awards\"]::before {\n  content: \"\\f02e\" !important;\n}\na[href*=\"#services\"]::before {\n  content: \"\\f013\" !important;\n}\na[href*=\"#contact\"]::before {\n  content: \"\\f086\" !important;\n}\na[href*=\"#followme\"]::before {\n  content: \"\\f099\" !important;\n  color: #0084b4;\n}\n/*-------------------------------*/\n/*       Hamburger-Cross         */\n/*-------------------------------*/\n.hamburger {\n  position: fixed;\n  top: 20px;  \n  z-index: 999;\n  display: block;\n  width: 32px;\n  height: 32px;\n  margin-left: 15px;\n  background: transparent;\n  border: none;\n}\n.hamburger:hover,\n.hamburger:focus,\n.hamburger:active {\n  outline: none;\n}\n.hamburger.is-closed:before {\n  content: '';\n  display: block;\n  width: 100px;\n  font-size: 14px;\n  color: #fff;\n  line-height: 32px;\n  text-align: center;\n  opacity: 0;\n  -webkit-transform: translate3d(0,0,0);\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-closed:hover:before {\n  opacity: 1;\n  display: block;\n  -webkit-transform: translate3d(-100px,0,0);\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-closed .hamb-top,\n.hamburger.is-closed .hamb-middle,\n.hamburger.is-closed .hamb-bottom,\n.hamburger.is-open .hamb-top,\n.hamburger.is-open .hamb-middle,\n.hamburger.is-open .hamb-bottom {\n  position: absolute;\n  left: 0;\n  height: 4px;\n  width: 100%;\n}\n.hamburger.is-closed .hamb-top,\n.hamburger.is-closed .hamb-middle,\n.hamburger.is-closed .hamb-bottom {\n  background-color: #1a1a1a;\n}\n.hamburger.is-closed .hamb-top { \n  top: 5px; \n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-closed .hamb-middle {\n  top: 50%;\n  margin-top: -2px;\n}\n.hamburger.is-closed .hamb-bottom {\n  bottom: 5px;  \n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-closed:hover .hamb-top {\n  top: 0;\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-closed:hover .hamb-bottom {\n  bottom: 0;\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-open .hamb-top,\n.hamburger.is-open .hamb-middle,\n.hamburger.is-open .hamb-bottom {\n  background-color: #1a1a1a;\n}\n.hamburger.is-open .hamb-top,\n.hamburger.is-open .hamb-bottom {\n  top: 50%;\n  margin-top: -2px;  \n}\n.hamburger.is-open .hamb-top { \n  -webkit-transform: rotate(45deg);\n  -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);\n}\n.hamburger.is-open .hamb-middle { display: none; }\n.hamburger.is-open .hamb-bottom {\n  -webkit-transform: rotate(-45deg);\n  -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);\n}\n.hamburger.is-open:before {\n  content: '';\n  display: block;\n  width: 100px;\n  font-size: 14px;\n  color: #fff;\n  line-height: 32px;\n  text-align: center;\n  opacity: 0;\n  -webkit-transform: translate3d(0,0,0);\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-open:hover:before {\n  opacity: 1;\n  display: block;\n  -webkit-transform: translate3d(-100px,0,0);\n  -webkit-transition: all .35s ease-in-out;\n}\n/*-------------------------------*/\n/*            Overlay            */\n/*-------------------------------*/\n/*ANUSREE's Styles*/\n.page-header {\n    margin-left: 50px;\n    width: 100%;\n    display: inline-block;\n    text-align: center;\n}\n.left, .right {\n    float:left;\n    width: calc(50% - 6em);\n    padding: 3em;\n}\ninput[type=\"text\"] {\n    width: 100%;\n    padding: 5px;\n    margin-bottom: 10px;\n}", "",{"version":3,"sources":["styles.css"],"names":[],"mappings":"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","file":"styles.css","sourcesContent":["body {\n    position: relative;\n    overflow-x: hidden;\n    background-color: #CFD8DC;\n}\nbody,\nhtml { height: 100%;}\n.nav .open > a, \n.nav .open > a:hover, \n.nav .open > a:focus {background-color: transparent;}\n\n/*-------------------------------*/\n/*           Wrappers            */\n/*-------------------------------*/\n\n#wrapper {\n    padding-left: 0;\n    -webkit-transition: all 0.5s ease;\n    -moz-transition: all 0.5s ease;\n    -o-transition: all 0.5s ease;\n    transition: all 0.5s ease;\n}\n\n#wrapper.toggled {\n    padding-left: 220px;\n}\n\n#sidebar-wrapper {\n    z-index: 1000;\n    left: 220px;\n    width: 0;\n    height: 100%;\n    margin-left: -220px;\n    overflow-y: auto;\n    overflow-x: hidden;\n    background: #1a1a1a;\n    -webkit-transition: all 0.5s ease;\n    -moz-transition: all 0.5s ease;\n    -o-transition: all 0.5s ease;\n    transition: all 0.5s ease;\n}\n\n#sidebar-wrapper::-webkit-scrollbar {\n  display: none;\n}\n\n#wrapper.toggled #sidebar-wrapper {\n    width: 220px;\n}\n\n#page-content-wrapper {\n    width: 100%;\n    /*padding-top: 70px;*/\n}\n\n#wrapper.toggled #page-content-wrapper {\n    position: absolute;\n    margin-right: -220px;\n}\n\n/*-------------------------------*/\n/*     Sidebar nav styles        */\n/*-------------------------------*/\n.navbar {\n  padding: 0;\n}\n\n.sidebar-nav {\n    position: absolute;\n    top: 0;\n    width: 220px;\n    margin: 0;\n    padding: 0;\n    list-style: none;\n}\n\n.sidebar-nav li {\n    position: relative; \n    line-height: 20px;\n    display: inline-block;\n    width: 100%;\n}\n\n.sidebar-nav li:before {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n    z-index: -1;\n    height: 100%;\n    width: 3px;\n    background-color: #1c1c1c;\n    -webkit-transition: width .2s ease-in;\n      -moz-transition:  width .2s ease-in;\n       -ms-transition:  width .2s ease-in;\n            transition: width .2s ease-in;\n\n}\n.sidebar-nav li:hover{\n  background: skyblue !important;\n  border-radius: 10px;\n  margin-left: 10px;\n  margin-right: 10px;\n}\n.sidebar-nav li:hover:before,\n.sidebar-nav li.open:hover:before {\n    width: 100%;\n    -webkit-transition: width .2s ease-in;\n      -moz-transition:  width .2s ease-in;\n       -ms-transition:  width .2s ease-in;\n            transition: width .2s ease-in;\n\n}\n\n.sidebar-nav li a {\n    display: block;\n    color: #ddd;\n    text-decoration: none;\n    padding: 10px 15px 10px 30px;    \n}\n\n.sidebar-nav li a:hover,\n.sidebar-nav li a:active,\n.sidebar-nav li a:focus,\n.sidebar-nav li.open a:hover,\n.sidebar-nav li.open a:active,\n.sidebar-nav li.open a:focus{\n    color: #fff;\n    text-decoration: none;\n    background-color: transparent;\n}\n.sidebar-header {\n    text-align: center;\n    font-size: 20px;\n    position: relative;\n    width: 100%;\n    display: inline-block;\n}\n.sidebar-brand {\n    height: 65px;\n    position: relative;\n    background:#212531;\n    background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);\n   padding-top: 1em;\n}\n.sidebar-brand a {\n    color: #ddd;\n}\n.sidebar-brand a:hover {\n    color: #fff;\n    text-decoration: none;\n}\n.dropdown-header {\n    text-align: center;\n    font-size: 1em;\n    color: #ddd;\n    background:#212531;\n    background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);\n}\n.sidebar-nav .dropdown-menu {\n    position: relative;\n    width: 100%;\n    padding: 0;\n    margin: 0;\n    border-radius: 0;\n    border: none;\n    background-color: #222;\n    box-shadow: none;\n}\n.dropdown-menu.show {\n    top: 0;\n}\n/*Fontawesome icons*/\n.nav.sidebar-nav li a::before {\n    font-family: fontawesome;\n    content: \"\\f12e\";\n    vertical-align: baseline;\n    display: inline-block;\n    padding-right: 5px;\n}\na[href*=\"#home\"]::before {\n  content: \"\\f015\" !important;\n}\na[href*=\"#about\"]::before {\n  content: \"\\f129\" !important;\n}\na[href*=\"#events\"]::before {\n  content: \"\\f073\" !important;\n}\na[href*=\"#events\"]::before {\n  content: \"\\f073\" !important;\n}\na[href*=\"#team\"]::before {\n  content: \"\\f0c0\" !important;\n}\na[href*=\"#works\"]::before {\n  content: \"\\f0b1\" !important;\n}\na[href*=\"#pictures\"]::before {\n  content: \"\\f03e\" !important;\n}\na[href*=\"#videos\"]::before {\n  content: \"\\f03d\" !important;\n}\na[href*=\"#books\"]::before {\n  content: \"\\f02d\" !important;\n}\na[href*=\"#art\"]::before {\n  content: \"\\f1fc\" !important;\n}\na[href*=\"#awards\"]::before {\n  content: \"\\f02e\" !important;\n}\na[href*=\"#services\"]::before {\n  content: \"\\f013\" !important;\n}\na[href*=\"#contact\"]::before {\n  content: \"\\f086\" !important;\n}\na[href*=\"#followme\"]::before {\n  content: \"\\f099\" !important;\n  color: #0084b4;\n}\n/*-------------------------------*/\n/*       Hamburger-Cross         */\n/*-------------------------------*/\n\n.hamburger {\n  position: fixed;\n  top: 20px;  \n  z-index: 999;\n  display: block;\n  width: 32px;\n  height: 32px;\n  margin-left: 15px;\n  background: transparent;\n  border: none;\n}\n.hamburger:hover,\n.hamburger:focus,\n.hamburger:active {\n  outline: none;\n}\n.hamburger.is-closed:before {\n  content: '';\n  display: block;\n  width: 100px;\n  font-size: 14px;\n  color: #fff;\n  line-height: 32px;\n  text-align: center;\n  opacity: 0;\n  -webkit-transform: translate3d(0,0,0);\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-closed:hover:before {\n  opacity: 1;\n  display: block;\n  -webkit-transform: translate3d(-100px,0,0);\n  -webkit-transition: all .35s ease-in-out;\n}\n\n.hamburger.is-closed .hamb-top,\n.hamburger.is-closed .hamb-middle,\n.hamburger.is-closed .hamb-bottom,\n.hamburger.is-open .hamb-top,\n.hamburger.is-open .hamb-middle,\n.hamburger.is-open .hamb-bottom {\n  position: absolute;\n  left: 0;\n  height: 4px;\n  width: 100%;\n}\n.hamburger.is-closed .hamb-top,\n.hamburger.is-closed .hamb-middle,\n.hamburger.is-closed .hamb-bottom {\n  background-color: #1a1a1a;\n}\n.hamburger.is-closed .hamb-top { \n  top: 5px; \n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-closed .hamb-middle {\n  top: 50%;\n  margin-top: -2px;\n}\n.hamburger.is-closed .hamb-bottom {\n  bottom: 5px;  \n  -webkit-transition: all .35s ease-in-out;\n}\n\n.hamburger.is-closed:hover .hamb-top {\n  top: 0;\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-closed:hover .hamb-bottom {\n  bottom: 0;\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-open .hamb-top,\n.hamburger.is-open .hamb-middle,\n.hamburger.is-open .hamb-bottom {\n  background-color: #1a1a1a;\n}\n.hamburger.is-open .hamb-top,\n.hamburger.is-open .hamb-bottom {\n  top: 50%;\n  margin-top: -2px;  \n}\n.hamburger.is-open .hamb-top { \n  -webkit-transform: rotate(45deg);\n  -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);\n}\n.hamburger.is-open .hamb-middle { display: none; }\n.hamburger.is-open .hamb-bottom {\n  -webkit-transform: rotate(-45deg);\n  -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);\n}\n.hamburger.is-open:before {\n  content: '';\n  display: block;\n  width: 100px;\n  font-size: 14px;\n  color: #fff;\n  line-height: 32px;\n  text-align: center;\n  opacity: 0;\n  -webkit-transform: translate3d(0,0,0);\n  -webkit-transition: all .35s ease-in-out;\n}\n.hamburger.is-open:hover:before {\n  opacity: 1;\n  display: block;\n  -webkit-transform: translate3d(-100px,0,0);\n  -webkit-transition: all .35s ease-in-out;\n}\n\n/*-------------------------------*/\n/*            Overlay            */\n/*-------------------------------*/\n\n\n/*ANUSREE's Styles*/\n\n.page-header {\n    margin-left: 50px;\n    width: 100%;\n    display: inline-block;\n    text-align: center;\n}\n\n.left, .right {\n    float:left;\n    width: calc(50% - 6em);\n    padding: 3em;\n}\n\ninput[type=\"text\"] {\n    width: 100%;\n    padding: 5px;\n    margin-bottom: 10px;\n}"]}]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (useSourceMap) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join('');
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
+
+  var cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot || '').concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+  }
+
+  return [content].join('\n');
+} // Adapted from convert-source-map (MIT)
+
+
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+  return "/*# ".concat(data, " */");
+}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : undefined;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && btoa) {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
+/***/ "./src/styles.css":
+/*!************************!*\
+  !*** ./src/styles.css ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js??ref--12-1!../node_modules/postcss-loader/src??embedded!./styles.css */ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/styles.css");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ 2:
+/*!******************************!*\
+  !*** multi ./src/styles.css ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! C:\Users\anusree.gopi\Desktop\Tableau\angular\src\styles.css */"./src/styles.css");
+
+
+/***/ })
+
+},[[2,"runtime"]]]);
+//# sourceMappingURL=styles.js.map

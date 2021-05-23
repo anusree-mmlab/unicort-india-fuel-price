@@ -1,0 +1,72 @@
+http://localhost:3010/basicfuelprice
+
+###
+http://localhost:3010/users
+
+###
+http://localhost:3010/report/3/2021-05-22
+
+###
+POST http://localhost:3010/fuel
+Content-Type: application/json
+
+{
+    "fuel_type": "petrol",
+    "city_id": 1,
+    "price": 7,
+    "date": "2021-05-07"
+}
+
+###
+POST http://localhost:3010/fuel
+Content-Type: application/json
+
+[
+{
+    "fuel_type": "petrol",
+    "city_id": 1,
+    "price": 21,
+    "date": "2021-05-11"
+},
+{
+    "fuel_type": "diesel",
+    "city_id": 1,
+    "price": 11,
+    "date": "2021-05-11"
+}
+]
+
+
+###
+http://localhost:3010/storedproctest
+
+###
+POST http://localhost:3010/login
+Content-Type: application/json
+
+{
+    "email": "anusree@unicort.com",
+    "password": "123456"
+}
+
+###
+http://localhost:3010/fuel/1
+
+###
+http://localhost:3010/fuel/1/2021-05-09
+
+###
+http://localhost:3010/user/status/5
+
+
+###
+http://localhost:3010/states
+
+###
+http://localhost:3010/districts/1
+
+###
+http://localhost:3010/cities/1
+
+###
+http://localhost:3010/taxrates/1/1

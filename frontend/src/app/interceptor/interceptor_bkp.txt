@@ -1,0 +1,38 @@
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpResponse,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor
+} from '@angular/common/http';
+import { Observable, of,  } from 'rxjs';
+import { share } from 'rxjs/operators';
+
+@Injectable()
+export class AppHttpInterceptor implements HttpInterceptor {
+  private cache: Map<HttpRequest<unknown>, HttpResponse<unknown>> = new Map()
+  constructor() {}
+
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    console.log('---Logging from interceptor', request.url);
+
+    if(request.method !== "GET") {
+      return next.handle(request)
+    }
+
+    if(request.headers.get("reset")) {
+      this.cache.delete(request)
+   }
+
+   const cachedResponse: HttpResponse<unknown> = this.cache.get(request)
+    if(cachedResponse) {
+        return of(cachedResponse.clone())
+    } else {
+        return next.handle(request).pipe()
+    }
+  }    
+    
+    //return next.handle(request);
+  }
+}

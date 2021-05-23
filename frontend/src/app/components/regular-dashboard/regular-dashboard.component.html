@@ -1,0 +1,109 @@
+<div style="margin-top: 10px">
+
+    <form #myform="ngForm" (ngSubmit)="getFuelPrice(myform)" class="form form-register" style="display: flex;">
+        <div class="form-group " style="margin: 2%">
+            <label for="project">States</label>
+            <div *ngIf="(states | async)?.length > 0 ; else elseBlockState ">
+                <select (change)="onStateChange($event, state.value)" name="state" id="state" class="form-control"
+                    ngModel="{{state_id}}" required #state="ngModel">
+                    <option value="">Choose a State</option>
+                    <option value="{{state.id}}" *ngFor="let state of states | async; let i = index">
+                        {{state.name}}</option>
+                </select>
+            </div>
+            <ng-template #elseBlockState>
+                <div class="text-center" style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+
+
+        <div class="form-group " style="margin: 2%">
+            <label for="project">Districts</label>
+            <div *ngIf="(districts | async)?.length > 0 ; else elseBlockDistrict ">
+                <select (change)="onDistrictChange($event, district.value)" name="district" id="district"
+                    class="form-control" ngModel="{{district_id}}" required #district="ngModel">
+                    <option value="">Choose a District</option>
+                    <option value="{{district.id}}" *ngFor="let district of districts | async; let i = index">
+                        {{district.name}}</option>
+                </select>
+            </div>
+            <ng-template #elseBlockDistrict>
+                <div class="text-center" style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+
+        <div class="form-group " style="margin: 2%">
+            <label for="project">Cities</label>
+
+            <div *ngIf="(cities | async)?.length > 0 ; else elseBlockCity ">
+                <select (change)="onCityChange($event, city.value)" name="city" id="city" class="form-control"
+                    ngModel="{{city_id}}" required #city="ngModel">
+                    <option value="">Choose a City</option>
+                    <option value="{{city.id}}" *ngFor="let city of cities | async; let i = index">
+                        {{city.name}}</option>
+                </select>
+            </div>
+            <ng-template #elseBlockCity>
+                <div class="text-center" style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+
+        <div class="form-group" style="margin: 2%">
+            <label for="project">Date</label>
+            <div class="input-group">
+                <input type="date" name="date" value="{{selectedDate}}" ngModel="{{selectedDate}}" required
+                    #date="ngModel" (change)="onDateChange(date.value)">
+            </div>
+        </div>
+
+    </form>
+
+
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">Fuel Price In <b class="text-primary">{{cityName}}</b> On
+                <b class="text-primary">{{selectedDate| date: 'dd/MM/yyyy'}}</b>
+            </h5>
+            <div *ngIf="(fuelRates | async)?.length > 0 ; else elseBlockFuelPrice ">
+
+                <ul class="list-group list-group-flush" *ngFor="let fuelRate of fuelRates | async">
+                    <li class="list-group-item" style="color: brown;"
+                        *ngIf="fuelRate.price == 0; else fuelPriceAvailable">
+                        No data available for the selected city
+                    </li>
+                    <ng-template #fuelPriceAvailable>
+                        <li class="list-group-item">
+                            <h2 style="text-transform: capitalize;">{{fuelRate.fuel_type}}
+                                <span class="badge badge-primary">{{fuelRate.price}} Rs</span>
+                            </h2>
+                            <sup>{{fuelRate.date| date: 'dd/MM/yyyy'}}</sup>
+
+                        </li>
+                    </ng-template>
+
+                </ul>
+            </div>
+            <ng-template #elseBlockFuelPrice>
+                <div class="text-center" style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

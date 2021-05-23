@@ -1,0 +1,64 @@
+<form #myform="ngForm" (ngSubmit)="loginUser(myform)" class="form form-register">
+
+  <div class="form-group">
+    <label for="email">*Email</label>
+
+    <input class="form-control" name="name" id="name" type="text" placeholder="Email" ngModel required #name="ngModel">
+  </div>
+
+
+  <div class="form-group ">
+    <label for="password">*Password</label>
+    <input class="form-control" name="password" id="name" type="password" placeholder="Password" ngModel required
+      #password="ngModel">
+  </div>
+
+  <div *ngIf="!isValid" class="alert alert-danger">Please fill required values</div>
+
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+    <div *ngIf="name.errors.required">
+      Name is required.
+    </div>
+  </div>
+
+  <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+    <div *ngIf="password.errors.required">
+      Password is required.
+    </div>
+  </div>
+
+
+  <input type="submit" value="Login" class="btn btn-primary">
+</form>
+
+<div *ngIf="errorMessage.length > 0" class="alert alert-danger" role="alert" style="margin: 10px 0px !important">
+  {{errorMessage}}
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="left">
+
+    <input type="text" placeholder="email" #email>
+    <input type="password" placeholder="password" #password>
+
+    <tr *ngFor="let user of userList | async; let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{user.name}}</td>
+    
+    </tr>
+
+
+
+  
+    <button (click)="login(email.value,password.value)">Login</button>
+  </div>
+-->

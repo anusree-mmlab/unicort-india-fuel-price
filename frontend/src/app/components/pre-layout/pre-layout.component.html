@@ -1,0 +1,36 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+  <div class="page-header" style="margin: 0px; width: 100%">
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="navbar-brand" style="width:100%">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 vertical-mid" style="display: flex; padding: 0% 5%; border: solid 0px red">
+            <a routerLink="/">
+              <img src="/assets/images/flag.jpeg" width="50" />
+            </a>
+            <h1 style="padding: 0% 1%">India Fuel Price</h1>
+          </div>
+
+          <div class="col-lg-6 col-md-6" *ngIf="(isLoggedIn | async)"
+            style=" border: solid 0px green; display: flex; align-items: center; justify-content: flex-end;color: white ">
+            {{loggedInUserObj.name}}
+            <a style="color: red; cursor: pointer; margin-right: 1%;margin-left: 1%;"
+              (click)="authService.logout()">Logout</a>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-lg-offset-2">
+
+        <router-outlet></router-outlet>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /#page-content-wrapper -->

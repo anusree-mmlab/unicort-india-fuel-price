@@ -1,0 +1,5 @@
+<div [ngSwitch]="loggedInUser.usertype">
+  <app-admin-dashboard *ngSwitchCase="'admin'"></app-admin-dashboard>
+  <app-regular-dashboard *ngSwitchCase="'user'"></app-regular-dashboard>
+  <app-super-admin-dashboard *ngSwitchCase="'superadmin'"></app-super-admin-dashboard>
+</div>

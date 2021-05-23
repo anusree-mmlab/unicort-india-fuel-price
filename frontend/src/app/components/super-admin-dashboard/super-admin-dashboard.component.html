@@ -1,0 +1,89 @@
+<div style="margin-top: 10px">
+
+    <form #myform="ngForm" (ngSubmit)="getLogReport(myform)" class="form form-register" style="display: flex;">
+
+        <div class="form-group " style="margin: 2%">
+            <label for="project">Users</label>
+
+            <div *ngIf="(users | async)?.length > 0 ; else elseBlockUser ">
+                <select (change)="onUserChange($event, user.value)" name="user" id="user" class="form-control"
+                    ngModel="{{user_id}}" required #user="ngModel">
+                    <option value="">Choose a User</option>
+                    <option value="{{user.id}}" *ngFor="let user of users | async; let i = index">
+                        {{user.name}}</option>
+                </select>
+            </div>
+            <ng-template #elseBlockUser>
+                <div class="text-center" style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+
+        <div class="form-group" style="margin: 2%">
+            <label for="project">Date</label>
+            <div class="input-group">
+                <input type="date" name="date" value="{{selectedDate}}" ngModel="{{selectedDate}}" required
+                    #date="ngModel" (change)="onDateChange(date.value)">
+            </div>
+        </div>
+
+    </form>
+
+
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" style="text-align: center;">Log Report <b class="text-primary">{{userName}}</b> On
+                <b class="text-primary">{{selectedDate| date: 'dd/MM/yyyy'}}</b>
+            </h5>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Url</th>
+                                <th scope="col">Count</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report_here">
+                            <ng-template ngFor let-logReport [ngForOf]="logReports | async"
+                                *ngIf="(logReports | async)?.length > 0 ; else elseBlock ">
+
+                                <tr style="color: brown;" *ngIf="logReport.url == ''; else reportAvailable">
+                                    No data available for the selected date
+                                </tr>
+                                <ng-template #reportAvailable>
+                                    <tr>
+                                        <td>{{logReport.url}}</td>
+                                        <td>{{logReport.count}}</td>
+                                    <tr>
+                                </ng-template>
+
+
+                            </ng-template>
+
+                            <ng-template #elseBlock>
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="text-center"
+                                            style="width: 100%;margin-top: 10%; grid-column-start: 1;grid-column-end: 4;">
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-template>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
